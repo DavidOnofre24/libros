@@ -4,6 +4,20 @@ Book bookFromJson(String str) => Book.fromJson(json.decode(str));
 
 String bookToJson(Book data) => json.encode(data.toJson());
 
+class Books {
+  List<Book> items = new List();
+  Books();
+
+  Books.fromJsonList(List<dynamic> jsonList) {
+    if (jsonList == null) return;
+
+    for (var item in jsonList) {
+      final libro = new Book.fromJson(item);
+      items.add(libro);
+    }
+  }
+}
+
 class Book {
   Book({
     this.userId,
