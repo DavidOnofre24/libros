@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:libreria/pages/consultar_page.dart';
 import 'package:libreria/pages/home_page.dart';
 import 'package:libreria/pages/libro_page.dart';
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'home': (BuildContext context) => HomePage(),
         'libro': (BuildContext context) => LibroPage(),
+        'consultar': (BuildContext context) => ConsultarPage(),
       },
     );
   }

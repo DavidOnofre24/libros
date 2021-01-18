@@ -22,23 +22,44 @@ class _HomePageState extends State<LibroPage> {
         body: Stack(
           children: [
             _fondoApp(),
-            Column(
-              children: [
-                Container(
-                    padding: EdgeInsets.only(top: 60, left: 40),
-                    child: Text(
-                      'Registrar libro',
-                      style: TextStyle(
-                          color: Colors.orange,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold),
-                    )),
-                _crearNombre(),
-                _crearNombreAutor(),
-                _crearFecha(),
-                _crearPrecio(),
-                _crearDisponible(),
-              ],
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                      padding: EdgeInsets.only(top: 50, right: 200),
+                      child: Text(
+                        'Registrar libro',
+                        style: TextStyle(
+                            color: Colors.orange,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                      )),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  _crearNombre(),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  _crearNombreAutor(),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  _crearFecha(),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  _crearPrecio(),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  _crearDisponible(),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  _crearBoton(),
+                ],
+              ),
             )
           ],
         ));
@@ -68,11 +89,67 @@ class _HomePageState extends State<LibroPage> {
     );
   }
 
-  _crearNombreAutor() {}
+  Widget _crearNombreAutor() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      child: TextField(
+        keyboardType: TextInputType.text,
+        decoration: InputDecoration(
+          hintText: 'Ejemplo: David Onofre',
+          labelText: 'Nombre del autor',
+        ),
+        onChanged: (value) {},
+      ),
+    );
+  }
 
-  _crearFecha() {}
+  Widget _crearFecha() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      child: TextField(
+        keyboardType: TextInputType.text,
+        decoration: InputDecoration(
+          hintText: 'Ejemplo: Libro1',
+          labelText: 'Fecha de publicacion',
+        ),
+        onChanged: (value) {},
+      ),
+    );
+  }
 
-  _crearPrecio() {}
+  Widget _crearPrecio() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      child: TextField(
+        keyboardType: TextInputType.text,
+        decoration: InputDecoration(
+          hintText: '€',
+          labelText: 'Precio',
+        ),
+        onChanged: (value) {},
+      ),
+    );
+  }
 
-  _crearDisponible() {}
+  Widget _crearDisponible() {
+    return SwitchListTile(
+      value: false,
+      title: Text('Disponible'),
+      activeColor: Colors.deepPurple,
+      onChanged: (value) => setState(() {}),
+    );
+  }
+
+  Widget _crearBoton() {
+    return RaisedButton(
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 80.0),
+          child: Text('Ingresar'),
+        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+        elevation: 0.0,
+        color: Colors.deepPurple,
+        textColor: Colors.white,
+        onPressed: () {});
+  }
 }
