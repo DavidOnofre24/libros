@@ -12,13 +12,27 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-        actions: [
-          IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {}),
-        ],
+        appBar: AppBar(
+          title: Text('Libreria Online'),
+          actions: [
+            IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {}),
+          ],
+        ),
+        drawer: MenuWidget(),
+        body: Stack(
+          children: [
+            _fondoApp(),
+          ],
+        ));
+  }
+
+  Widget _fondoApp() {
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("assets/background-image.png"),
+            fit: BoxFit.cover),
       ),
-      drawer: MenuWidget(),
     );
   }
 }

@@ -8,16 +8,28 @@ class MenuWidget extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           SizedBox(
-            height: 20,
+            height: 100,
+          ),
+          ListTile(
+            title: Text(
+              'Libreria',
+              style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.purple,
+                  fontWeight: FontWeight.bold),
+            ),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, 'home');
+            },
           ),
           ListTile(
             trailing: Icon(
               Icons.home,
               color: Colors.blue,
             ),
-            title: Text('Home'),
+            title: Text('Registrar libro'),
             onTap: () {
-              Navigator.pushReplacementNamed(context, 'home');
+              Navigator.pushReplacementNamed(context, 'libro');
             },
           ),
           ListTile(
@@ -25,25 +37,9 @@ class MenuWidget extends StatelessWidget {
               Icons.party_mode,
               color: Colors.blue,
             ),
-            title: Text('Party Mode'),
-            onTap: () {},
-          ),
-          ListTile(
-            trailing: Icon(
-              Icons.people,
-              color: Colors.blue,
-            ),
-            title: Text('People'),
-            onTap: () {},
-          ),
-          ListTile(
-            trailing: Icon(
-              Icons.settings,
-              color: Colors.blue,
-            ),
-            title: Text('Settings'),
+            title: Text('Consultar libros'),
             onTap: () {
-              Navigator.pushReplacementNamed(context, '');
+              Navigator.pushReplacementNamed(context, 'consultar');
             },
           ),
         ],
