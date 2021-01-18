@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:libreria/pages/home_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: 'home',
       routes: {
-        'home': (BuildContext context) => LoginPage(),
+        'home': (BuildContext context) => HomePage(),
       },
     );
   }
