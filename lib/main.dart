@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       debugShowCheckedModeBanner: false,
       initialRoute: 'home',
+      theme: ThemeData(primaryColor: Color.fromRGBO(62, 10, 122, 1)),
       routes: {
         'home': (BuildContext context) => HomePage(),
       },

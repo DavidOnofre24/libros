@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:libreria/widgets/menu_widget.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -13,7 +14,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
+        actions: [
+          IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {}),
+        ],
       ),
+      drawer: MenuWidget(),
     );
   }
 }

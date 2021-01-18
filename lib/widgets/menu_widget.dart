@@ -7,12 +7,8 @@ class MenuWidget extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          DrawerHeader(
-            child: Container(),
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/menu-img.jpg'),
-                    fit: BoxFit.cover)),
+          SizedBox(
+            height: 20,
           ),
           ListTile(
             trailing: Icon(
