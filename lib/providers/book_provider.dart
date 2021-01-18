@@ -4,7 +4,7 @@ import 'package:libreria/models/book_model.dart';
 import 'package:http/http.dart' as http;
 
 class BookProvider {
-  String _url = 'https://jsonplaceholder.typicode.com/todos/';
+  String _url = 'jsonplaceholder.typicode.com';
 
   Future<List<Book>> _procesarRespuesta(Uri url) async {
     final resp = await http.get(url);
@@ -26,7 +26,7 @@ class BookProvider {
   }
 
   Future<List<Book>> getBook() async {
-    final url = Uri.https(_url, '');
+    final url = Uri.https(_url, 'todos/');
 
     return await _procesarRespuesta(url);
   }

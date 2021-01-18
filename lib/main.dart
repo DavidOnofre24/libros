@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
-      initialRoute: 'libro',
+      initialRoute: 'home',
       theme: ThemeData(primaryColor: Color.fromRGBO(62, 10, 122, 1)),
       routes: {
         'home': (BuildContext context) => HomePage(),

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:libreria/providers/book_provider.dart';
 import 'package:libreria/widgets/menu_widget.dart';
 
 class ConsultarPage extends StatefulWidget {
@@ -10,6 +11,7 @@ class ConsultarPage extends StatefulWidget {
 }
 
 class _ConsultarPageState extends State<ConsultarPage> {
+  final _bookprovider = BookProvider();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,7 +88,9 @@ class _ConsultarPageState extends State<ConsultarPage> {
                     size: 30,
                   ),
                   label: Text(''),
-                  onPressed: () {},
+                  onPressed: () {
+                    _bookprovider.getBook();
+                  },
                   color: Colors.white,
                 ),
                 FlatButton.icon(

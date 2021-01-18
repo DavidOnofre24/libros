@@ -13,7 +13,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Libreria Online'),
+          title: Text('Home'),
           actions: [
             IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {}),
           ],
@@ -22,6 +22,15 @@ class _HomePageState extends State<HomePage> {
         body: Stack(
           children: [
             _fondoApp(),
+            Container(
+                padding: EdgeInsets.only(top: 50, left: 20),
+                child: Text(
+                  'Bienvenidos',
+                  style: TextStyle(
+                      color: Colors.orange,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold),
+                )),
           ],
         ));
   }
