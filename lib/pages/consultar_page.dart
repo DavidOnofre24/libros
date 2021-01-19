@@ -53,64 +53,70 @@ class _ConsultarPageState extends State<ConsultarPage> {
   }
 
   Widget _crearCard() {
-    return Container(
-      width: double.infinity,
-      height: 200,
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        margin: EdgeInsets.all(15),
-        elevation: 10,
-        child: Column(
-          children: <Widget>[
-            ListTile(
-              contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
-              title: Text(
-                'Libro X',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              ),
-              subtitle: Text('Dross',
-                  style: TextStyle(
-                    fontSize: 20,
-                  )),
-              leading: Icon(
-                Icons.import_contacts,
-                size: 150,
-                color: Colors.black,
-              ),
-            ),
-            Container(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+    return FutureBuilder(
+      future: _bookprovider.getBook(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        return Container(
+          width: double.infinity,
+          height: 200,
+          child: Card(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            margin: EdgeInsets.all(15),
+            elevation: 10,
+            child: Column(
               children: <Widget>[
-                FlatButton.icon(
-                  icon: Icon(
-                    Icons.edit,
-                    color: Colors.deepPurple,
-                    size: 30,
+                ListTile(
+                  contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
+                  title: Text(
+                    '${snapshot.data[2]}',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
                   ),
-                  label: Text(''),
-                  onPressed: () {
-                    _bookprovider.getBook();
-                  },
-                  color: Colors.white,
-                ),
-                FlatButton.icon(
-                  icon: Icon(
-                    Icons.delete,
-                    color: Colors.orange,
-                    size: 30,
+                  subtitle: Text('${snapshot.data[0]}',
+                      style: TextStyle(
+                        fontSize: 20,
+                      )),
+                  leading: Icon(
+                    Icons.import_contacts,
+                    size: 150,
+                    color: Colors.black,
                   ),
-                  label: Text(''),
-                  onPressed: () {},
-                  color: Colors.white,
                 ),
+                Container(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    FlatButton.icon(
+                      icon: Icon(
+                        Icons.edit,
+                        color: Colors.deepPurple,
+                        size: 30,
+                      ),
+                      label: Text(''),
+                      onPressed: () {
+                        _bookprovider.getBook();
+                      },
+                      color: Colors.white,
+                    ),
+                    FlatButton.icon(
+                      icon: Icon(
+                        Icons.delete,
+                        color: Colors.orange,
+                        size: 30,
+                      ),
+                      label: Text(''),
+                      onPressed: () {},
+                      color: Colors.white,
+                    ),
+                  ],
+                )
               ],
-            )
-          ],
-        ),
-      ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
